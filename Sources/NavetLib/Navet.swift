@@ -17,10 +17,9 @@ import Foundation
     // Navet isn't a good movie generator.
     // It produces generative "Navets"
     // Navet handle the Exit calls
-    // we use Objc to be able to configure with cocoa bindings
-    @objc public class Navet:NSObject{
+    public class Navet{
 
-        public enum ColorMode:String{
+        public enum ColorMode:String {
             case uniform
             case random
             case progressive
@@ -40,18 +39,18 @@ import Foundation
             case m4v
         }
 
-        public static let version:String = "1.0.5"
+        public static let version:String = "1.0.6"
 
         // MARK : - To be exposed to the command line
 
 
-        @objc dynamic public var width:CGFloat = 1080
+        public var width:CGFloat = 1080
 
-        @objc dynamic public var height:CGFloat = 720
+        public var height:CGFloat = 720
 
-        @objc dynamic public var fps: Double = 25
+        public var fps: Double = 25
 
-        @objc dynamic public var numberOfSeconds:Double = 10
+        public var numberOfSeconds:Double = 10
 
         public var colorMode:ColorMode = .progressive
 
@@ -59,19 +58,19 @@ import Foundation
 
         public var fileType:FileType = .mov
 
-        @objc dynamic public var currentR:CGFloat = 0
-        @objc dynamic public var currentG:CGFloat = 0
-        @objc dynamic public var currentB:CGFloat = 0
+        public var currentR:CGFloat = 0
+        public var currentG:CGFloat = 0
+        public var currentB:CGFloat = 0
 
-        @objc dynamic public var colorStep:CGFloat = 1 / 32
+        public var colorStep:CGFloat = 1 / 32
 
-        @objc public enum ColorComponents:Int {
+        public enum ColorComponents {
             case r
             case g
             case b
         }
 
-        @objc dynamic public var currentColorComponent:ColorComponents = .r
+        public var currentColorComponent:ColorComponents = .r
 
         // MARK : -
 
@@ -229,11 +228,13 @@ import Foundation
             return image
         }
 
-        override public init(){
-            super.init()
-        }
+        public init(){
 
+        }
         // MARK: - Implementation
+
+
+
 
         fileprivate var n:Int{ return Int(round(self.numberOfSeconds * self.fps)) }
 
@@ -337,3 +338,4 @@ import Foundation
 
     }
 #endif
+
