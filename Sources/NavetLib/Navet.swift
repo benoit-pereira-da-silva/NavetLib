@@ -17,7 +17,8 @@ import Foundation
     // Navet isn't a good movie generator.
     // It produces generative "Navets"
     // Navet handle the Exit calls
-    public class Navet{
+    // we use Objc to be able to configure with cocoa bindings
+    @objc public class Navet:NSObject{
 
         public enum ColorMode:String {
             case uniform
@@ -44,25 +45,25 @@ import Foundation
         // MARK : - To be exposed to the command line
 
 
-        public var width:CGFloat = 1080
+        @objc dynamic public var width:CGFloat = 1080
 
-        public var height:CGFloat = 720
+        @objc dynamic public var height:CGFloat = 720
 
-        public var fps: Double = 25
+        @objc dynamic public var fps: Double = 25
 
-        public var numberOfSeconds:Double = 10
+        @objc dynamic public var numberOfSeconds:Double = 10
 
-        public var colorMode:ColorMode = .progressive
+        @objc dynamic public var colorMode:ColorMode = .progressive
 
-        public var videoCodec:VideoCodec = .h264
+        @objc dynamic public var videoCodec:VideoCodec = .h264
 
-        public var fileType:FileType = .mov
+        @objc dynamic public var fileType:FileType = .mov
 
-        public var currentR:CGFloat = 0
-        public var currentG:CGFloat = 0
-        public var currentB:CGFloat = 0
+        @objc dynamic public var currentR:CGFloat = 0
+        @objc dynamic public var currentG:CGFloat = 0
+        @objc dynamic public var currentB:CGFloat = 0
 
-        public var colorStep:CGFloat = 1 / 32
+        @objc dynamic public var colorStep:CGFloat = 1 / 32
 
         public enum ColorComponents {
             case r
@@ -70,7 +71,7 @@ import Foundation
             case b
         }
 
-        public var currentColorComponent:ColorComponents = .r
+        @objc dynamic public var currentColorComponent:ColorComponents = .r
 
         // MARK : -
 
