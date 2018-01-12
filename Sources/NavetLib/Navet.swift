@@ -40,7 +40,7 @@ import Foundation
             case m4v
         }
 
-        public static let version:String = "1.0.2"
+        public static let version:String = "1.0.5"
 
         // MARK : - To be exposed to the command line
 
