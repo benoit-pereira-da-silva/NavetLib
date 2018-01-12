@@ -20,13 +20,13 @@ import Foundation
     // we use Objc to be able to configure with cocoa bindings
     @objc public class Navet:NSObject{
 
-        public enum ColorMode:String {
+        @objc public enum ColorMode:Int{
             case uniform
             case random
             case progressive
         }
 
-        public enum VideoCodec:String{
+        @objc public enum VideoCodec:Int{
             case hevc
             case h264
             case jpeg
@@ -34,13 +34,13 @@ import Foundation
             case proRes422
         }
 
-        public enum FileType:String{
+        @objc public enum FileType:Int{
             case mov
             case mp4
             case m4v
         }
 
-        public static let version:String = "1.0.1"
+        public static let version:String = "1.0.2"
 
         // MARK : - To be exposed to the command line
 
@@ -65,7 +65,7 @@ import Foundation
 
         @objc dynamic public var colorStep:CGFloat = 1 / 32
 
-        public enum ColorComponents {
+        @objc public enum ColorComponents:Int {
             case r
             case g
             case b
@@ -229,13 +229,11 @@ import Foundation
             return image
         }
 
-        public init(){
-            
+        override public init(){
+            super.init()
         }
+
         // MARK: - Implementation
-
-
-
 
         fileprivate var n:Int{ return Int(round(self.numberOfSeconds * self.fps)) }
 
