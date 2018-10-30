@@ -11,6 +11,3 @@ Navet is a Command line video generator that does not create masterpieces but us
 # Contact 
 
 [Drop me a message on pereira-da-silva.com](https://pereira-da-silva.com)
-
-
-
