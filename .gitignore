@@ -1,2 +1,4 @@
 .build/
 xcuserdata/
+# spm build 
+NavetLib.xcodeproj/
