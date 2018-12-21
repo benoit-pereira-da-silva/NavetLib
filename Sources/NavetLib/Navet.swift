@@ -115,7 +115,7 @@ import Foundation
                     exit(EX__BASE)
                 }
 
-                videoWriter.startSession(atSourceTime: CMTime.zero)
+                videoWriter.startSession(atSourceTime: kCMTimeZero)
                 guard pixelBufferAdaptor.pixelBufferPool != nil else{
                     print("pixelBufferPool is nil")
                     exit(EX__BASE)
@@ -190,20 +190,20 @@ import Foundation
             let textTextContent = mainString //"00:00:00:01"
             let textStyle = NSMutableParagraphStyle()
             textStyle.alignment = .center
-            let textFontAttributes : [NSAttributedString.Key: Any]
+            let textFontAttributes : [NSAttributedStringKey: Any]
             if #available(OSX 10.11, *) {
                 textFontAttributes = [
                     .font: NSFont.monospacedDigitSystemFont(ofSize: fontSize, weight: NSFont.Weight.light),
                     .foregroundColor: self.textColor,
                     .paragraphStyle: textStyle,
-                    ] as [NSAttributedString.Key: Any]
+                    ] as [NSAttributedStringKey: Any]
             } else {
                 let font = NSFont.init(name: "Monaco", size: fontSize)!
                 textFontAttributes = [
                     .font: font,
                     .foregroundColor: self.textColor,
                     .paragraphStyle: textStyle,
-                    ] as [NSAttributedString.Key: Any]
+                    ] as [NSAttributedStringKey: Any]
             }
             let textTextHeight: CGFloat = textTextContent.boundingRect(with: NSSize(width: textRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: textFontAttributes).height
             let textTextRect: NSRect = NSRect(x: textRect.minX, y: textRect.minY + (textRect.height - textTextHeight) / 2, width: textRect.width, height: textTextHeight)
@@ -217,7 +217,7 @@ import Foundation
                     .font: NSFont.systemFont(ofSize: self.width/50),
                     .foregroundColor: self.textColor,
                     .paragraphStyle: textStyle,
-                    ] as [NSAttributedString.Key: Any]
+                    ] as [NSAttributedStringKey: Any]
                 let textTextHeight: CGFloat = s.boundingRect(with: NSSize(width: textRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: textFontAttributes).height
                 let textTextRect: NSRect = NSRect(x: textRect.minX, y: textRect.minY, width: textRect.width, height: textTextHeight)
                 s.draw(in: textTextRect.offsetBy(dx: 0, dy: 0), withAttributes: textFontAttributes)
