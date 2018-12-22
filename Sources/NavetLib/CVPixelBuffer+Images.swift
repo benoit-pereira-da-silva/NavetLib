@@ -6,7 +6,7 @@
 //  Copyright © 2017 Pereira da Silva https://pereira-da-silva.com All rights reserved.
 //
 
-#if os(OSX)
+
 import Foundation
 import CoreVideo
 
@@ -30,4 +30,3 @@ extension CVPixelBuffer {
         CVPixelBufferUnlockBaseAddress(self, [])
     }
 }
-#endif
